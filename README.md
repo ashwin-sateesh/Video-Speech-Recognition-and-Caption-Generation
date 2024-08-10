@@ -23,4 +23,34 @@ The system is designed to process video frames to detect and recognize spoken wo
    - The predicted words/phrases are then added as captions to the video.
 
 
+## Methodology
+
+### Dataset
+- The MIRACL-VC1 dataset was used, consisting of video frames of 10 words and 10 phrases spoken by 15 individuals, totaling around 37,000 images.
+
+### Preprocessing
+- The face and lip regions were detected and cropped using the Haar Cascade Classifier.
+- Image arrays were padded with zero vectors to maintain uniform dimensions across all instances.
+
+### Feature Extraction
+- ResNet50 and VGG16 models were used to extract feature vectors from the lip images.
+- Global Average Pooling was applied to obtain 512-dimensional (VGG16) and 2048-dimensional (ResNet50) feature vectors.
+
+### Model Training
+- LSTM, LSTM with Attention, and Transformer models were trained on the extracted features to classify the spoken words and phrases.
+- Hyperparameter tuning was conducted to optimize each model’s performance.
+
+## Results
+The results demonstrate the potential of sequence models in accurately classifying spoken words and phrases from image sequences. The performance of the models is summarized as follows:
+
+| Model                              | Accuracy (Words) | Accuracy (Phrases) |
+|------------------------------------|------------------|--------------------|
+| ResNet50 + LSTM                    | 71.3%            | 72.3%              |
+| ResNet50 + LSTM-Attn               | 86.1%            | 75.4%              |
+| ResNet50 + Transformer (Traditional PE) | 82.4%            | 88.3%              |
+| ResNet50 + Transformer (Learned PE) | 78.7%            | 82.3%              |
+| VGG16 + LSTM                       | 89.1%            | 86.6%              |
+| VGG16 + LSTM-Attn                  | 91.3%            | 77.6%              |
+| VGG16 + Transformer (Traditional PE) | 86.6%            | 87.6%              |
+| VGG16 + Transformer (Learned PE)   | 82.3%            | 80.6%              |
 
