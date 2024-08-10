@@ -5,9 +5,9 @@ The project aims to develop an automated video speech recognition system, or a l
 
 ## System Design and Architecture
 The system is designed to process video frames to detect and recognize spoken words using visual cues. The design involves several key components:
-<p align="center">
-  <img src="https://github.com/ashwin-sateesh/Video-Speech-Recognition-and-Caption-Generation/blob/main/assets/Video%20Speech%20Detection%20Caption%20Generation.png" alt="System Architecture">
-</p>
+
+  <img src="https://github.com/ashwin-sateesh/Video-Speech-Recognition-and-Caption-Generation/blob/main/assets/Video%20Speech%20Detection%20Caption%20Generation.png" alt="System Architecture" align="center">
+
 
 1. **Face and Lip Detection**: 
    - The system uses a pre-trained Haar Cascade Classifier to detect faces and localize the lip region in each video frame.
