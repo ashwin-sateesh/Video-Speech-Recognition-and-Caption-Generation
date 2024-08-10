@@ -1,7 +1,26 @@
-# Video-Speech-Recognition-and-Caption-Generation
+# Automatic Video Speech Recognition and Caption Generation System
 
-Our goal in this project was to develop an automated video speech recognition system (or a lip-reading model) that can detect and generate words spoken in a short video using only visual cues, with the aim of improving the quality of life for individuals with hearing impairment.
+## Objective
+The project aims to develop an automated video speech recognition system, or a lip-reading model, capable of detecting and generating words spoken in short videos using only visual cues. The primary goal is to improve the quality of life for individuals with hearing impairments. The system also has potential applications in enhancing speech recognition in noisy environments, improving security and surveillance, and enabling device control through lip movements.
 
-To achieve this, we used pre-trained convolutional models to detect facial features in each image frame, which were then fed into sequence model layers such as LSTM, LSTM with attention and Transformer to learn how a sequence of image frames produces a certain word. We used the pre-trained Haar Cascade Classifier to detect the mouth and lips in each image, and cropped and resized the lip section of each image. To extract features from each image, we used VGG16 and Resnet50 convolutional models.
+## System Design and Architecture
+The system is designed to process video frames to detect and recognize spoken words using visual cues. The design involves several key components:
+
+1. **Face and Lip Detection**: 
+   - The system uses a pre-trained Haar Cascade Classifier to detect faces and localize the lip region in each video frame.
+   - The detected lip regions are cropped and resized to a uniform dimension (25x58x3) for further processing.
+
+2. **Feature Extraction**:
+   - Pre-trained convolutional neural networks (CNNs), specifically ResNet50 and VGG16, are employed to extract spatial features from the cropped lip images.
+   - These features are represented as 512-dimensional vectors from VGG16 and 2048-dimensional vectors from ResNet50 after removing the softmax layer.
+
+3. **Sequence Modeling**:
+   - The extracted features are passed through sequence models such as Long Short-Term Memory (LSTM) networks, LSTM with Attention, and Transformers to learn the temporal dynamics of the image sequences.
+   - Two types of positional encoding were used for the Transformer model: traditional sine-cosine based and learned positional encoding.
+
+4. **Classification and Caption Generation**:
+   - The sequence models predict the spoken word or phrase for each video instance.
+   - The predicted words/phrases are then added as captions to the video.
+
 
 
