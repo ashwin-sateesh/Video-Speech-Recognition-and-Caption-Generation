@@ -19,7 +19,7 @@ The pipeline operates in four stages:
 ## Project Structure
 
 ```
-video-speech-recognition/
+video-speech-recognition-and-caption-generation/
 ├── configs/
 │   ├── __init__.py
 │   └── config.py              # PathConfig, DatasetConfig, LSTMConfig, TransformerConfig, etc.
